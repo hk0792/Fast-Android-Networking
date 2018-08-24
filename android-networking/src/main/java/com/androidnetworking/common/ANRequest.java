@@ -79,67 +79,67 @@ import okio.Okio;
 @SuppressWarnings({"unchecked", "unused"})
 public class ANRequest<T extends ANRequest> {
 
-    private final static String TAG = ANRequest.class.getSimpleName();
+    protected final static String TAG = ANRequest.class.getSimpleName();
 
-    private int mMethod;
-    private Priority mPriority;
-    private int mRequestType;
-    private String mUrl;
-    private int sequenceNumber;
-    private Object mTag;
-    private ResponseType mResponseType;
-    private HashMap<String, List<String>> mHeadersMap = new HashMap<>();
-    private HashMap<String, String> mBodyParameterMap = new HashMap<>();
-    private HashMap<String, String> mUrlEncodedFormBodyParameterMap = new HashMap<>();
-    private HashMap<String, MultipartStringBody> mMultiPartParameterMap = new HashMap<>();
-    private HashMap<String, List<String>> mQueryParameterMap = new HashMap<>();
-    private HashMap<String, String> mPathParameterMap = new HashMap<>();
-    private HashMap<String, List<MultipartFileBody>> mMultiPartFileMap = new HashMap<>();
-    private String mDirPath;
-    private String mFileName;
-    private String mApplicationJsonString = null;
-    private String mStringBody = null;
-    private byte[] mByte = null;
-    private File mFile = null;
-    private static final MediaType JSON_MEDIA_TYPE =
+    protected int mMethod;
+    protected Priority mPriority;
+    protected int mRequestType;
+    protected String mUrl;
+    protected int sequenceNumber;
+    protected Object mTag;
+    protected ResponseType mResponseType;
+    protected HashMap<String, List<String>> mHeadersMap = new HashMap<>();
+    protected HashMap<String, String> mBodyParameterMap = new HashMap<>();
+    protected HashMap<String, String> mUrlEncodedFormBodyParameterMap = new HashMap<>();
+    protected HashMap<String, MultipartStringBody> mMultiPartParameterMap = new HashMap<>();
+    protected HashMap<String, List<String>> mQueryParameterMap = new HashMap<>();
+    protected HashMap<String, String> mPathParameterMap = new HashMap<>();
+    protected HashMap<String, List<MultipartFileBody>> mMultiPartFileMap = new HashMap<>();
+    protected String mDirPath;
+    protected String mFileName;
+    protected String mApplicationJsonString = null;
+    protected String mStringBody = null;
+    protected byte[] mByte = null;
+    protected File mFile = null;
+    protected static final MediaType JSON_MEDIA_TYPE =
             MediaType.parse("application/json; charset=utf-8");
-    private static final MediaType MEDIA_TYPE_MARKDOWN =
+    protected static final MediaType MEDIA_TYPE_MARKDOWN =
             MediaType.parse("text/x-markdown; charset=utf-8");
-    private MediaType customMediaType = null;
-    private static final Object sDecodeLock = new Object();
+    protected MediaType customMediaType = null;
+    protected static final Object sDecodeLock = new Object();
 
-    private Future future;
-    private Call call;
-    private int mProgress;
-    private boolean isCancelled;
-    private boolean isDelivered;
-    private boolean isRunning;
-    private int mPercentageThresholdForCancelling = 0;
-    private JSONArrayRequestListener mJSONArrayRequestListener;
-    private JSONObjectRequestListener mJSONObjectRequestListener;
-    private StringRequestListener mStringRequestListener;
-    private OkHttpResponseListener mOkHttpResponseListener;
-    private BitmapRequestListener mBitmapRequestListener;
-    private ParsedRequestListener mParsedRequestListener;
-    private OkHttpResponseAndJSONObjectRequestListener mOkHttpResponseAndJSONObjectRequestListener;
-    private OkHttpResponseAndJSONArrayRequestListener mOkHttpResponseAndJSONArrayRequestListener;
-    private OkHttpResponseAndStringRequestListener mOkHttpResponseAndStringRequestListener;
-    private OkHttpResponseAndBitmapRequestListener mOkHttpResponseAndBitmapRequestListener;
-    private OkHttpResponseAndParsedRequestListener mOkHttpResponseAndParsedRequestListener;
-    private DownloadProgressListener mDownloadProgressListener;
-    private UploadProgressListener mUploadProgressListener;
-    private DownloadListener mDownloadListener;
-    private AnalyticsListener mAnalyticsListener;
+    protected Future future;
+    protected Call call;
+    protected int mProgress;
+    protected boolean isCancelled;
+    protected boolean isDelivered;
+    protected boolean isRunning;
+    protected int mPercentageThresholdForCancelling = 0;
+    protected JSONArrayRequestListener mJSONArrayRequestListener;
+    protected JSONObjectRequestListener mJSONObjectRequestListener;
+    protected StringRequestListener mStringRequestListener;
+    protected OkHttpResponseListener mOkHttpResponseListener;
+    protected BitmapRequestListener mBitmapRequestListener;
+    protected ParsedRequestListener mParsedRequestListener;
+    protected OkHttpResponseAndJSONObjectRequestListener mOkHttpResponseAndJSONObjectRequestListener;
+    protected OkHttpResponseAndJSONArrayRequestListener mOkHttpResponseAndJSONArrayRequestListener;
+    protected OkHttpResponseAndStringRequestListener mOkHttpResponseAndStringRequestListener;
+    protected OkHttpResponseAndBitmapRequestListener mOkHttpResponseAndBitmapRequestListener;
+    protected OkHttpResponseAndParsedRequestListener mOkHttpResponseAndParsedRequestListener;
+    protected DownloadProgressListener mDownloadProgressListener;
+    protected UploadProgressListener mUploadProgressListener;
+    protected DownloadListener mDownloadListener;
+    protected AnalyticsListener mAnalyticsListener;
 
-    private Bitmap.Config mDecodeConfig;
-    private int mMaxWidth;
-    private int mMaxHeight;
-    private ImageView.ScaleType mScaleType;
-    private CacheControl mCacheControl = null;
-    private Executor mExecutor = null;
-    private OkHttpClient mOkHttpClient = null;
-    private String mUserAgent = null;
-    private Type mType = null;
+    protected Bitmap.Config mDecodeConfig;
+    protected int mMaxWidth;
+    protected int mMaxHeight;
+    protected ImageView.ScaleType mScaleType;
+    protected CacheControl mCacheControl = null;
+    protected Executor mExecutor = null;
+    protected OkHttpClient mOkHttpClient = null;
+    protected String mUserAgent = null;
+    protected Type mType = null;
 
     public ANRequest(GetRequestBuilder builder) {
         this.mRequestType = RequestType.SIMPLE;
